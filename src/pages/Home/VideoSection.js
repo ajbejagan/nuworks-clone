@@ -6,16 +6,26 @@ const VideoSection = () => {
     return (
         <>
             <div className="min-h-screen">
-                <div className="relative block md:hidden w-full min-h-screen max-h-screen">
+                <div className="relative block w-full min-h-screen max-h-screen">
                     <ReactPlayer
-                        className='w-full absolute top-0 left-0'
-                        autoplay={true}
+                        className='absolute top-0 left-0 block md:hidden w-full'
+                        playing={true}
                         volume='0'
                         muted={true}
                         loop
                         width='100%'
                         height='100%'
                         url={mobileVideo}
+                    />
+                    <ReactPlayer
+                        className='absolute top-0 left-0 hidden md:block w-full'
+                        playing={true}
+                        volume='0'
+                        muted={true}
+                        loop
+                        width='100%'
+                        height='100%'
+                        url={webVideo}
                     />
                 </div>
             </div>

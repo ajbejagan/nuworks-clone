@@ -1,6 +1,8 @@
 import VideoSection from "./VideoSection";
 import ServicesSection from "./ServicesSection";
 import CapabilityFocusSection from "./CapabilityFocusSection";
+// import ListOfServicesSection from "./ListOfServicesSection";
+import TechStackSection from "./TechStackSection";
 
 const Home = () => {
     return (
@@ -9,6 +11,7 @@ const Home = () => {
                 <VideoSection />
                 <ServicesSection />
                 <CapabilityFocusSection />
+                <TechStackSection />
             </div>
         </>
     )
