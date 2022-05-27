@@ -18,8 +18,8 @@ import Laravel from '../../assets/tech-stack/laravel.png';
 
 const TechStackSection = () => {
     return (
-        <div className="w-full mt-[100px]">
-            <div className="w-full md:max-w-[720px] xl:max-w-[1140px] px-[15px] mx-auto">
+        <div className="w-full mt-[100px] mb-[40px]">
+            <div className="w-full md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] px-[15px] mx-auto">
                 <div className="flex flex-col md:flex-row md:items-center xl:items-end -mx-[15px]">
                     <div className="w-full md:max-w-1/2 px-[15px]">
                         <img className="w-[260px] xl:w-[450px] h-auto" src={Title} alt="List of services" />

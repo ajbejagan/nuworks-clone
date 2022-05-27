@@ -5,7 +5,7 @@ const CapabilityFocusSection = () => {
     return (
         <>
             <div className="w-full">
-                <div className="w-full md:max-w-[720px] xl:max-w-[1140px] px-[15px] mx-auto">
+                <div className="w-full md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] px-[15px] mx-auto">
                     <div className="flex flex-col md:flex-row-reverse flex-wrap xl:items-center -mx-[15px]">
                         <div className="flex-zz50 w-full lg:max-w-1/2 px-[15px]">
                             <img className="w-[250px] xl:w-[500px] h-auto" src={Title} alt="Capability focus" />

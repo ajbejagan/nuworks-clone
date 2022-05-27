@@ -30,7 +30,7 @@ const Navbar = () => {
         <>
             <header className={`${ showOnScroll ? "bg-navbarBg shadow-[0_4px_20px_rgb(0,0,0,0.61)]" : "bg-transparent"} fixed top-0 w-full z-50 px-4 py-2`}>
                 <div className="flex flex-wrap items-center justify-between px-[15px]">
-                    <Link className="py-[.3125rem] xl:mx-[20px] xl:my-[10px]" to="/">
+                    <Link className="py-[.3125rem] md:mx-[20px] md:my-[10px]" to="/">
                         <img className={`${ showOnScroll ? "opacity-100" : "opacity-0" } w-[80%]`} src={logo} alt="Nuworks logo" />
                     </Link>
                     <button className="flex justify-end" onClick={toggle}>
