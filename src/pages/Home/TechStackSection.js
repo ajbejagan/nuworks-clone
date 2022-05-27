@@ -1,20 +1,13 @@
 import Title from '../../assets/tech-stack-title.png';
-import DigitalOcean from '../../assets/tech-stack/digital-ocean.png';
-import AWS from '../../assets/tech-stack/aws.png';
-import MySql from '../../assets/tech-stack/mysql.png';
-import MongoDB from '../../assets/tech-stack/mongodb.png';
-import PostgreSql from '../../assets/tech-stack/postgresql.png';
-import Nginx from '../../assets/tech-stack/nginx.png';
-import Php from '../../assets/tech-stack/php.png';
-import CloudFlare from '../../assets/tech-stack/cloudflare.png';
-import Magento from '../../assets/tech-stack/magento.png';
-import Moodle from '../../assets/tech-stack/moodle.png';
-import WordPress from '../../assets/tech-stack/wordpress.png';
-import SuiteCRM from '../../assets/tech-stack/suitecrm.png';
-import Drupal from '../../assets/tech-stack/drupal.png';
-import Django from '../../assets/tech-stack/django.png';
-import Python from '../../assets/tech-stack/python.png';
-import Laravel from '../../assets/tech-stack/laravel.png';
+import TechStackIcons from '../../assets/tech-stack';
+
+const IconWrap = ({ image, desc }) => {
+    return (
+        <div className="inline-block">
+            <img className="w-[100px] md:w-[110px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={image} alt={desc} />
+        </div>
+    )
+}
 
 const TechStackSection = () => {
     return (
@@ -31,54 +24,13 @@ const TechStackSection = () => {
                     </div>
                 </div>
                 <div className="text-center mt-[40px]">
-                    <div className="inline-block">
-                        <img className="w-[100px] md:w-[110px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={DigitalOcean} alt="Digital Ocean" />
-                    </div>
-                    <div className="inline-block">
-                        <img className="w-[100px] md:w-[110px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={AWS} alt="AWS" />
-                    </div>
-                    <div className="inline-block">
-                        <img className="w-[100px] md:w-[110px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={MySql} alt="MySql" />
-                    </div>
-                    <div className="inline-block">
-                        <img className="w-[100px] md:w-[110px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={MongoDB} alt="MongoDB" />
-                    </div>
-                    <div className="inline-block">
-                        <img className="w-[100px] md:w-[110px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={PostgreSql} alt="PostgreSql" />
-                    </div>
-                    <div className="inline-block">
-                        <img className="w-[100px] md:w-[110px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={Nginx} alt="Nginx" />
-                    </div>
-                    <div className="inline-block">
-                        <img className="w-[100px] md:w-[110px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={Php} alt="PHP" />
-                    </div>
-                    <div className="inline-block">
-                        <img className="w-[100px] md:w-[110px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={CloudFlare} alt="Cloud Flare" />
-                    </div>
-                    <div className="inline-block">
-                        <img className="w-[100px] md:w-[110px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={Magento} alt="Magento" />
-                    </div>
-                    <div className="inline-block">
-                        <img className="w-[100px] md:w-[110px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={Moodle} alt="Moodle" />
-                    </div>
-                    <div className="inline-block">
-                        <img className="w-[100px] md:w-[110px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={WordPress} alt="WordPress" />
-                    </div>
-                    <div className="inline-block">
-                        <img className="w-[100px] md:w-[110px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={SuiteCRM} alt="SuiteCRM" />
-                    </div>
-                    <div className="inline-block">
-                        <img className="w-[100px] md:w-[110px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={Drupal} alt="Drupal" />
-                    </div>
-                    <div className="inline-block">
-                        <img className="w-[100px] md:w-[110px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={Django} alt="Drupal" />
-                    </div>
-                    <div className="inline-block">
-                        <img className="w-[100px] md:w-[110px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={Python} alt="Python" />
-                    </div>
-                    <div className="inline-block">
-                        <img className="w-[100px] md:w-[110px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={Laravel} alt="Laravel" />
-                    </div>
+                    {
+                        TechStackIcons.map((icon, index) => {
+                            return (
+                                <IconWrap key={index} image={icon.image} desc={icon.description}  />
+                            )
+                        })
+                    }
                 </div>
             </div>
         </div>

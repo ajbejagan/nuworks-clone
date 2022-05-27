@@ -1,11 +1,13 @@
 import Title from '../../assets/affiliations-title.png';
-import googlePartner from '../../assets/affiliations/google-partner.png';
-import fbMarketingPartner from '../../assets/affiliations/fb-marketing-partner.png';
-import fourAsPH from '../../assets/affiliations/4AsPH.png';
-import IMMAP from '../../assets/affiliations/IMMAP.png';
-import pana from '../../assets/affiliations/pana.png';
-import CPHG from '../../assets/affiliations/cphg.png';
-import IDF from '../../assets/affiliations/idf.png';
+import AffiliationIcons from '../../assets/affiliations';
+
+const IconWrap = ({ image, desc, width, xlWidth }) => {
+    return (
+        <div className="inline-block m-[10px] md:mx-[30px] md:my-[20px] align-middle">
+            <img className={`w-[${width}px] ${xlWidth ? `xl:w-[${xlWidth}px]` : '' } h-auto mt-[10px] mx-[10px] mb-[20px]`} src={image} alt={desc} />
+        </div>
+    )
+}
 
 const AffiliationsSection = () => {
     return (
@@ -22,7 +24,14 @@ const AffiliationsSection = () => {
                     </div>
                 </div>
                 <div className="text-center mt-[40px]">
-                    <div className="inline-block m-[10px] md:mx-[30px] md:my-[20px] align-middle">
+                    {
+                        AffiliationIcons.map((icon, index) => {
+                            return (
+                                <IconWrap key={index} image={icon.image} desc={icon.description} width={icon.width} xlWidth={icon?.xlWidth}  />
+                            )
+                        })
+                    }
+                    {/* <div className="inline-block m-[10px] md:mx-[30px] md:my-[20px] align-middle">
                         <img className="w-[140px] xl:w-[160px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={googlePartner} alt="Google Partner" />
                     </div>
                     <div className="inline-block m-[10px] md:mx-[30px] md:my-[20px] align-middle">
@@ -42,7 +51,7 @@ const AffiliationsSection = () => {
                     </div>
                     <div className="inline-block m-[10px] md:mx-[30px] md:my-[20px] align-middle">
                         <img className="w-[170px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={IDF} alt="Interaction Design Foundation" />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
