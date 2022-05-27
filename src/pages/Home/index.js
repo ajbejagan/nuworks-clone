@@ -4,8 +4,11 @@ import CapabilityFocusSection from "./CapabilityFocusSection";
 // import ListOfServicesSection from "./ListOfServicesSection";
 import TechStackSection from "./TechStackSection";
 import AboutSection from "./AboutSection";
-import OurStorySection from "./OurStorySection";
-import OurValuesSection from "./OurValuesSection";
+import StorySection from "./StorySection";
+import ValuesSection from "./ValuesSection";
+import PartnersSection from "./PartnersSection";
+import AwardsSection from "./AwardsSection";
+import AffiliationsSection from "./AffiliationsSection";
 
 const Home = () => {
     return (
@@ -16,8 +19,11 @@ const Home = () => {
                 <CapabilityFocusSection />
                 <TechStackSection />
                 <AboutSection />
-                <OurStorySection />
-                <OurValuesSection />
+                <StorySection />
+                <ValuesSection />
+                <PartnersSection />
+                <AwardsSection />
+                <AffiliationsSection />
             </div>
         </>
     )

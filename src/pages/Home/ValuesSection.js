@@ -1,11 +1,11 @@
-import Title from '../../assets/our-values-title.png';
-import ValuesImage1 from '../../assets/our-values/values-image-1.png';
-import ValuesImage2 from '../../assets/our-values/values-image-2.png';
-import ValuesImage3 from '../../assets/our-values/values-image-3.png';
-import ValuesImage4 from '../../assets/our-values/values-image-4.png';
-import ValuesImage5 from '../../assets/our-values/values-image-5.png';
+import Title from '../../assets/values-title.png';
+import ValuesImage1 from '../../assets/values/values-image-1.png';
+import ValuesImage2 from '../../assets/values/values-image-2.png';
+import ValuesImage3 from '../../assets/values/values-image-3.png';
+import ValuesImage4 from '../../assets/values/values-image-4.png';
+import ValuesImage5 from '../../assets/values/values-image-5.png';
 
-const OurValuesSection = () => {
+const ValuesSection = () => {
     return (
         <div id="our-values" className="w-full">
             <div className="w-full md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] px-[15px] mx-auto">
@@ -76,4 +76,4 @@ const OurValuesSection = () => {
     )
 }
 
-export default OurValuesSection;
+export default ValuesSection;

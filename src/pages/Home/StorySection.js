@@ -1,7 +1,7 @@
-import Title from '../../assets/our-story-title.png';
-import Thumbnail from '../../assets/our-story-thumbnail.png';
+import Title from '../../assets/story-title.png';
+import Thumbnail from '../../assets/story-thumbnail.png';
 
-const OurStorySection = () => {
+const StorySection = () => {
     return (
         <div id="our-works" className="w-full my-[100px]">
             <div className="w-full md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] px-[15px] mx-auto">
@@ -26,4 +26,4 @@ const OurStorySection = () => {
     )
 }
 
-export default OurStorySection;
+export default StorySection;
