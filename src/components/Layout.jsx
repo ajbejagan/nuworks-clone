@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import FloatingCTA from './FloatingCTA';
@@ -6,6 +7,13 @@ import FloatingCTA from './FloatingCTA';
 const Layout = ({ children }) => {
     const [ showOnScroll, setShowOnScroll ] = useState(false);
     const [ isOpen, setIsOpen ] = useState(false);
+
+    const currentPage = useLocation();
+    const isHome = currentPage.pathname === '/' ? true : false;
+
+    useEffect(() => {
+        setIsOpen(false)
+    }, [currentPage.pathname]);
 
     const trackScroll = () => {
         if (window.scrollY >= 80.39) {
@@ -18,8 +26,8 @@ const Layout = ({ children }) => {
     window.addEventListener('scroll', trackScroll);
 
     return (
-        <div className={`relative bg-siteBg bg-[#1B1B1B] bg-no-repeat bg-cover bg-fixed min-h-full max-h-full overflow-hidden`}>
-            <Navbar showOnScroll={showOnScroll} isOpen={isOpen} setIsOpen={setIsOpen} />
+        <div className={`relative ${ isHome ? 'bg-siteHomeBg' : 'bg-siteBg lg:bg-siteHomeBg'} bg-[#1B1B1B] bg-no-repeat bg-cover ${ isHome ? 'bg-fixed' : 'bg-scroll' } min-h-full max-h-full overflow-hidden`}>
+            <Navbar isHome={isHome} showOnScroll={showOnScroll} isOpen={isOpen} setIsOpen={setIsOpen} />
             {children}
             <Footer />
             <FloatingCTA />

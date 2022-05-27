@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../assets/nuworks-logo-white.png';
 import hamburgerIcon from '../assets/hamburger-icon.png';
 import googlePartnerBadge from '../assets/google-partner-badge.png';
@@ -12,14 +12,7 @@ import {
     ytIcon
 } from '../assets/icons';
 
-const Navbar = ({ showOnScroll, isOpen, setIsOpen }) => {
-    const currentPage = useLocation();
-    const isHome = currentPage.pathname === '/' ? true : false;
-
-    useEffect(() => {
-        setIsOpen(false)
-    }, [currentPage.pathname]);
-
+const Navbar = ({ isHome, showOnScroll, isOpen, setIsOpen }) => {
     return (
         <>
             <header className={`${ showOnScroll ? "bg-navbarBg shadow-[0_4px_20px_rgb(0,0,0,0.61)]" : "bg-transparent"} fixed top-0 w-full z-50 px-4 py-2`}>
