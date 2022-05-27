@@ -10,7 +10,7 @@ const VideoSection = () => {
                     <ReactPlayer
                         className='absolute top-0 left-0 block md:hidden w-full'
                         playing={true}
-                        volume='0'
+                        volume={0}
                         muted={true}
                         loop
                         width='100%'
@@ -20,7 +20,7 @@ const VideoSection = () => {
                     <ReactPlayer
                         className='absolute top-0 left-0 hidden md:block w-full'
                         playing={true}
-                        volume='0'
+                        volume={0}
                         muted={true}
                         loop
                         width='100%'

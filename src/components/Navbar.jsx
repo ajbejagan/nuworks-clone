@@ -14,7 +14,7 @@ import {
 
 const Navbar = ({ showOnScroll, isOpen, setIsOpen }) => {
     const currentPage = useLocation();
-    const isHome = currentPage.pathname == '/' ? true : false;
+    const isHome = currentPage.pathname === '/' ? true : false;
 
     useEffect(() => {
         setIsOpen(false)
@@ -32,7 +32,7 @@ const Navbar = ({ showOnScroll, isOpen, setIsOpen }) => {
                     </button>
                 </div>
             </header>
-            <sidebar className={`${isOpen ? "block" : "hidden"} fixed top-0 right-0 bottom-0 left-0 w-full lg:w-[30%] h-full bg-[#F6C900] ml-auto opacity-[1] z-50`}>
+            <aside className={`${isOpen ? "block" : "hidden"} fixed top-0 right-0 bottom-0 left-0 w-full lg:w-[30%] h-full bg-[#F6C900] ml-auto opacity-[1] z-50`}>
                 <div className="relative flex flex-col justify-between h-full">
                     <div className="flex justify-end w-full pr-[50px] mt-[30px]">
                         <button
@@ -63,37 +63,37 @@ const Navbar = ({ showOnScroll, isOpen, setIsOpen }) => {
                     </nav>
                     <div className="px-[40px] mb-[20px]">
                         <div className="flex items-center">
-                            <a className="mr-[10px]" href="https://www.google.com/partners/agency?id=2893686766" target="_blank">
+                            <a className="mr-[10px]" href="https://www.google.com/partners/agency?id=2893686766" target="_blank" rel="noreferrer">
                                 <img className="w-[110px] h-auto" src={googlePartnerBadge} alt="Google Partner Badge" />
                             </a>
-                            <a href="#" target="_blank">
+                            <a href="#" target="_blank" rel="noreferrer">
                                 <img className="w-[100px] h-auto" src={fbMarketingPartnerBadge} alt="Facebook Marketing Partner Badge" />
                             </a>
                         </div>
                         <div className="pt-[20px]">
                             <ul className="flex items-start mb-4">
                                 <li className="w-[24px] h-[26px] mr-[8px]">
-                                    <a href="https://www.facebook.com/nuworks" target="_blank">
+                                    <a href="https://www.facebook.com/nuworks" target="_blank" rel="noreferrer">
                                         <img src={fbIcon} alt="Nuworks Facebook profile link" />
                                     </a>
                                 </li>
                                 <li className="w-[24px] h-[26px] mx-[8px]">
-                                    <a href="https://ph.linkedin.com/company/nuworksph" target="_blank">
+                                    <a href="https://ph.linkedin.com/company/nuworksph" target="_blank" rel="noreferrer">
                                         <img src={linkedInIcon} alt="Nuworks LinkedIn profile link" />
                                     </a>
                                 </li>
                                 <li className="w-[24px] h-[26px] mx-[8px]">
-                                    <a href="https://www.instagram.com/nuworksph/" target="_blank">
+                                    <a href="https://www.instagram.com/nuworksph/" target="_blank" rel="noreferrer">
                                         <img src={igIcon} alt="Nuworks Instagram profile link" />
                                     </a>
                                 </li>
                                 <li className="w-[24px] h-[26px] mx-[8px]">
-                                    <a href="https://twitter.com/nuworksph" target="_blank">
+                                    <a href="https://twitter.com/nuworksph" target="_blank" rel="noreferrer">
                                         <img src={twitterIcon} alt="Nuworks Twitter profile link" />
                                     </a>
                                 </li>
                                 <li className="w-[24px] h-[26px] mx-[8px]">
-                                    <a href="https://www.youtube.com/c/NuWorksInteractiveLabsIncPasig" target="_blank">
+                                    <a href="https://www.youtube.com/c/NuWorksInteractiveLabsIncPasig" target="_blank" rel="noreferrer">
                                         <img src={ytIcon} alt="Nuworks YouTube profile link" />
                                     </a>
                                 </li>
@@ -106,7 +106,7 @@ const Navbar = ({ showOnScroll, isOpen, setIsOpen }) => {
                         </div>
                     </div>
                 </div>
-            </sidebar>
+            </aside>
         </>
     )
 }

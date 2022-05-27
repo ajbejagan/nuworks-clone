@@ -1,6 +1,6 @@
 const TermsAndConditions = () => {
     return (
-        <div className="App">
+        <div className="min-h-screen">
             <h1>TermsAndConditions</h1>
             <h2>Hello, Nuworks!</h2>
         </div>
