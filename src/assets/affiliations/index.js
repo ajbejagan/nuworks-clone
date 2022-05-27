@@ -1,10 +1,10 @@
-import googlePartner from '../../assets/affiliations/google-partner.png';
-import fbMarketingPartner from '../../assets/affiliations/fb-marketing-partner.png';
-import fourAsPH from '../../assets/affiliations/4AsPH.png';
-import IMMAP from '../../assets/affiliations/IMMAP.png';
-import pana from '../../assets/affiliations/pana.png';
-import CPHG from '../../assets/affiliations/cphg.png';
-import IDF from '../../assets/affiliations/idf.png';
+import googlePartner from './google-partner.png';
+import fbMarketingPartner from './fb-marketing-partner.png';
+import fourAsPH from './4AsPH.png';
+import IMMAP from './IMMAP.png';
+import pana from './pana.png';
+import CPHG from './cphg.png';
+import IDF from './idf.png';
 
 const Icons = [
     {

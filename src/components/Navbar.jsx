@@ -1,49 +1,43 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/nuworks-logo-white.png';
 import hamburgerIcon from '../assets/hamburger-icon.png';
-import fbIcon from '../assets/icons/nu-fb-icon.svg';
-import linkedInIcon from '../assets/icons/nu-linkedin-icon.svg';
-import igIcon from '../assets/icons/nu-ig-icon.svg';
-import twitterIcon from '../assets/icons/nu-twitter-icon.svg';
-import ytIcon from '../assets/icons/nu-yt-icon.svg';
 import googlePartnerBadge from '../assets/google-partner-badge.png';
 import fbMarketingPartnerBadge from '../assets/fb-marketing-partner-badge.png';
+import {
+    fbIcon,
+    linkedInIcon,
+    igIcon,
+    twitterIcon,
+    ytIcon
+} from '../assets/icons';
 
-const Navbar = () => {
-    const [ showOnScroll, setShowOnScroll ] = useState(false);
-    const [ isToggled, setIsToggled ] = useState(false);
+const Navbar = ({ showOnScroll, isOpen, setIsOpen }) => {
+    const currentPage = useLocation();
+    const isHome = currentPage.pathname == '/' ? true : false;
 
-    const trackScroll = () => {
-        if (window.scrollY >= 80.39) {
-            setShowOnScroll(true);
-        } else {
-            setShowOnScroll(false);
-        }
-    }
-
-    window.addEventListener('scroll', trackScroll);
-
-    const toggle = () => setIsToggled(!isToggled);
+    useEffect(() => {
+        setIsOpen(false)
+    }, [currentPage.pathname]);
 
     return (
         <>
             <header className={`${ showOnScroll ? "bg-navbarBg shadow-[0_4px_20px_rgb(0,0,0,0.61)]" : "bg-transparent"} fixed top-0 w-full z-50 px-4 py-2`}>
                 <div className="flex flex-wrap items-center justify-between px-[15px]">
                     <Link className="py-[.3125rem] md:mx-[20px] md:my-[10px]" to="/">
-                        <img className={`${ showOnScroll ? "opacity-100" : "opacity-0" } w-[80%]`} src={logo} alt="Nuworks logo" />
+                        <img className={`${ showOnScroll || !isHome ? "opacity-100" : "opacity-0" } w-[80%]`} src={logo} alt="Nuworks logo" />
                     </Link>
-                    <button className="flex justify-end" onClick={toggle}>
+                    <button className="flex justify-end" onClick={() => setIsOpen(true)}>
                         <img className="w-[80%]" src={hamburgerIcon} alt="Navigation button" />
                     </button>
                 </div>
             </header>
-            <sidebar className={`${isToggled ? "block" : "hidden"} fixed top-0 right-0 bottom-0 left-0 w-full lg:w-[30%] h-full bg-[#F6C900] ml-auto opacity-[1] z-50`}>
+            <sidebar className={`${isOpen ? "block" : "hidden"} fixed top-0 right-0 bottom-0 left-0 w-full lg:w-[30%] h-full bg-[#F6C900] ml-auto opacity-[1] z-50`}>
                 <div className="relative flex flex-col justify-between h-full">
                     <div className="flex justify-end w-full pr-[50px] mt-[30px]">
                         <button
                             className="text-[36px] text-[#434343] font-semibold leading-[24px] dro26shadow-[0_1px_0_#FFFFFF] opacity-50 hover:opacity-75"
-                            onClick={() => setIsToggled(false)}
+                            onClick={() => setIsOpen(false)}
                         >
                             X
                         </button>

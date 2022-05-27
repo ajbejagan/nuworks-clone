@@ -1,9 +1,11 @@
 import Title from '../../assets/values-title.png';
-import ValuesImage1 from '../../assets/values/values-image-1.png';
-import ValuesImage2 from '../../assets/values/values-image-2.png';
-import ValuesImage3 from '../../assets/values/values-image-3.png';
-import ValuesImage4 from '../../assets/values/values-image-4.png';
-import ValuesImage5 from '../../assets/values/values-image-5.png';
+import {
+    ValuesImage1,
+    ValuesImage2,
+    ValuesImage3,
+    ValuesImage4,
+    ValuesImage5
+} from '../../assets/values';
 
 const ValuesSection = () => {
     return (
