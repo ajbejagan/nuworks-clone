@@ -3,6 +3,7 @@ import Layout from './components/Layout';
 import ErrorPage from './pages/ErrorPage';
 import Home from './pages/Home';
 import LetsConnect from './pages/LetsConnect';
+import JoinTheTeam from './pages/JoinTheTeam';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
 import './index.css';
@@ -14,6 +15,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/lets-connect" element={<LetsConnect />} />
+          <Route path="/join-the-team" element={<JoinTheTeam />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           <Route path="*" element={<ErrorPage />} />

@@ -10,7 +10,7 @@ const Footer = () => {
     return (
         <footer className="bg-[#CCCCCC] shrink-0 mt-[50px]">
             <div className="px-[20px] py-[10px]">
-                <div className="xl:flex xl:flex-row-reverse w-full xl:max-w-[1140px] px-[15px] mx-auto">
+                <div className="xl:flex xl:flex-row-reverse w-full md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] px-[15px] mx-auto">
                     <div className="xl:flex xl:flex-row-reverse xl:items-center w-full xl:max-w-[58.333333%]">
                         <div className="pt-[20px]">
                             <ul className="flex items-start mb-4">
@@ -42,9 +42,9 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div className="xl:mr-[30px]">
-                            <Link className="text-[13px] xl:text-[16px] text-[#1E1D1D] underline underline-offset-4 tracking-[.02em]" to="/terms-and-conditions">Terms and Conditions</Link>
+                            <Link className="text-[13px] md:text-[16px] text-[#1E1D1D] underline underline-offset-4 tracking-[.02em]" to="/terms-and-conditions">Terms and Conditions</Link>
                             &nbsp;&nbsp;|&nbsp;&nbsp;
-                            <Link className="text-[13px] xl:text-[16px] text-[#1E1D1D] underline underline-offset-4 tracking-[.02em]" to="/privacy-policy">Privacy Policy</Link>
+                            <Link className="text-[13px] md:text-[16px] text-[#1E1D1D] underline underline-offset-4 tracking-[.02em]" to="/privacy-policy">Privacy Policy</Link>
                         </div>
                     </div>
                     <div className="xl:flex xl:items-center xl:justify-center w-full xl:max-w-[41.666667%] pt-[20px] xl:pt-0 xl:px-[15px]">

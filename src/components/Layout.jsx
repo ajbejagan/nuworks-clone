@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import FloatingCTA from './FloatingCTA';
 
 const Layout = ({ children }) => {
     return (
@@ -8,6 +9,7 @@ const Layout = ({ children }) => {
             <Navbar />
             {children}
             <Footer />
+            <FloatingCTA />
         </div>
     )
 }

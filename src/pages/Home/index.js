@@ -9,6 +9,7 @@ import ValuesSection from "./ValuesSection";
 import PartnersSection from "./PartnersSection";
 import AwardsSection from "./AwardsSection";
 import AffiliationsSection from "./AffiliationsSection";
+import CTASection from "./CTASection";
 
 const Home = () => {
     return (
@@ -24,6 +25,8 @@ const Home = () => {
                 <PartnersSection />
                 <AwardsSection />
                 <AffiliationsSection />
+                <hr className="w-[70%] border-white border-dashed mt-[30px] mx-auto" />
+                <CTASection />
             </div>
         </>
     )
