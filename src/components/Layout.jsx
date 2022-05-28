@@ -15,6 +15,10 @@ const Layout = ({ children }) => {
         setIsOpen(false)
     }, [currentPage.pathname]);
 
+    useEffect(() => {
+        document.body.classList = `relative ${ isHome ? 'bg-siteHomeBg' : 'bg-siteBg lg:bg-siteHomeBg'} bg-[#1B1B1B] bg-no-repeat bg-cover bg-fixed w-full min-h-full max-h-full overflow-x-hidden`;
+    }, [isHome])
+
     const trackScroll = () => {
         if (window.scrollY >= 80.39) {
             setShowOnScroll(true);
@@ -26,12 +30,12 @@ const Layout = ({ children }) => {
     window.addEventListener('scroll', trackScroll);
 
     return (
-        <div className={`relative ${ isHome ? 'bg-siteHomeBg' : 'bg-siteBg lg:bg-siteHomeBg'} bg-[#1B1B1B] bg-no-repeat bg-cover ${ isHome ? 'bg-fixed' : 'bg-scroll' } min-h-full max-h-full overflow-hidden`}>
+        <>
             <Navbar isHome={isHome} showOnScroll={showOnScroll} isOpen={isOpen} setIsOpen={setIsOpen} />
             {children}
             <Footer />
             <FloatingCTA />
-        </div>
+        </>
     )
 }
 
