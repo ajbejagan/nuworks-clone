@@ -2,7 +2,7 @@ import Title from '../assets/privacy-policy-title.png';
 
 const PrivacyPolicy = () => {
     return (
-        <div className="w-full min-h-screen mt-[100px] mb-[30px]">
+        <div className="w-full my-[100px]">
             <div className="w-full md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] px-[15px] mx-auto">
                 <img className="w-1/2 h-auto" src={Title} alt="Awards" />
                 <div className="text-[16px] text-white tracking-normal leading-[28px] my-[50px]">
