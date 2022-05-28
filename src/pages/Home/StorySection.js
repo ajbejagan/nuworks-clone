@@ -3,7 +3,7 @@ import Thumbnail from '../../assets/story-thumbnail.png';
 
 const StorySection = () => {
     return (
-        <div id="our-works" className="w-full my-[100px]">
+        <div className="w-full my-[100px]">
             <div className="w-full md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] px-[15px] mx-auto">
                 <div className="flex flex-col md:flex-col-reverse lg:flex-row-reverse flex-wrap -mx-[15px]">
                     <div className="flex-zz50 w-full lg:max-w-1/2 px-[15px]">

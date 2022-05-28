@@ -8,12 +8,22 @@ const Layout = ({ children }) => {
     const [ showOnScroll, setShowOnScroll ] = useState(false);
     const [ isOpen, setIsOpen ] = useState(false);
 
-    const currentPage = useLocation();
-    const isHome = currentPage.pathname === '/' ? true : false;
+    const location = useLocation();
+    console.log(location);
+    const isHome = location.pathname === '/' ? true : false;
 
-    useEffect(() => {
-        setIsOpen(false)
-    }, [currentPage.pathname]);
+    useEffect(()=> {
+        if (location.hash) {
+            const pageSection = document.getElementById(location.hash.slice(1))
+            if (pageSection) {
+                pageSection.scrollIntoView({behavior: "smooth"})
+            }
+        } else {
+            window.scrollTo({top:0,left:0, behavior: "smooth"})
+        }
+
+        setIsOpen(false);
+    }, [location])
 
     useEffect(() => {
         document.body.classList = `relative ${ isHome ? 'bg-siteHomeBg' : 'bg-siteBg lg:bg-siteHomeBg'} bg-[#1B1B1B] bg-no-repeat bg-cover bg-fixed w-full min-h-full max-h-full overflow-x-hidden`;

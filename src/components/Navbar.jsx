@@ -37,20 +37,40 @@ const Navbar = ({ isHome, showOnScroll, isOpen, setIsOpen }) => {
                     </div>
                     <nav className="pl-[40px]">
                         <ul>
-                            <li className="my-[20px]">
-                                <p className="text-[24px] text-[#434343] font-semibold uppercase leading-[32px]">Our Services</p>
+                            <li className="my-[20px] cursor-pointer">
+                                <Link to="/#services">
+                                    <p className="text-[24px] hover:text-[30px] text-[#434343] hover:text-black font-semibold uppercase leading-[32px] nav-links-hover">
+                                        Our Services
+                                    </p>
+                                </Link>
                             </li>
-                            <li className="my-[20px]">
-                                <p className="text-[24px] text-[#434343] font-semibold uppercase leading-[32px]">Our Work</p>
+                            <li className="my-[20px] cursor-pointer">
+                                <Link to="/#work">
+                                    <p className="text-[24px] hover:text-[30px] text-[#434343] hover:text-black font-semibold uppercase leading-[32px] nav-links-hover">
+                                        Our Work
+                                    </p>
+                                </Link>
                             </li>
-                            <li className="my-[20px]">
-                                <p className="text-[24px] text-[#434343] font-semibold uppercase leading-[32px]">About Nuworks</p>
+                            <li className="my-[20px] cursor-pointer">
+                                <Link to="/#about">
+                                    <p className="text-[24px] hover:text-[30px] text-[#434343] hover:text-black font-semibold uppercase leading-[32px] nav-links-hover">
+                                        About Nuworks
+                                    </p>
+                                </Link>
                             </li>
-                            <li className="my-[20px]">
-                                <p className="text-[24px] text-[#434343] font-semibold uppercase leading-[32px]">Be One of Us</p>
+                            <li className="my-[20px] cursor-pointer">
+                                <Link to="/join-the-team">
+                                    <p className="text-[24px] hover:text-[30px] text-[#434343] hover:text-black font-semibold uppercase leading-[32px] nav-links-hover">
+                                        Be One of Us
+                                    </p>
+                                </Link>
                             </li>
-                            <li className="my-[20px]">
-                                <p className="text-[24px] text-[#434343] font-semibold uppercase leading-[32px]">Let's Connect</p>
+                            <li className="my-[20px] cursor-pointer">
+                                <Link to="/lets-connect">
+                                    <p className="text-[24px] hover:text-[30px] text-[#434343] hover:text-black font-semibold uppercase leading-[32px] nav-links-hover">
+                                        Let's Connect
+                                    </p>
+                                </Link>
                             </li>
                         </ul>
                     </nav>
