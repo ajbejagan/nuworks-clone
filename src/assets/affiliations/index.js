@@ -10,43 +10,43 @@ const Icons = [
     {
         'image': googlePartner,
         'description': 'Google Partner',
-        'width': 140,
-        'xlWidth': 160
+        'width': 'w-[140px]',
+        'responsiveWidth': 'xl:w-[160px]'
     },
     {
         'image': fbMarketingPartner,
         'description': 'Facebook Marketing Partner',
-        'width': 120,
-        'xlWidth': 140
+        'width': 'w-[120px]',
+        'responsiveWidth': 'xl:w-[140px]'
     },
     {
         'image': fourAsPH,
         'description': '4As Philippines',
-        'width': 120,
-        'xlWidth': 150
+        'width': 'w-[120px]',
+        'responsiveWidth': 'xl:w-[150px]'
     },
     {
         'image': IMMAP,
         'description': 'IMMAP',
-        'width': 140,
-        'xlWidth': 160
+        'width': 'w-[140px]',
+        'responsiveWidth': 'xl:w-[160px]'
     },
     {
         'image': pana,
         'description': 'PANA',
-        'width': 110,
-        'xlWidth': 130
+        'width': 'w-[110px]',
+        'responsiveWidth': 'xl:w-[130px]'
     },
     {
         'image': CPHG,
         'description': 'CPHG',
-        'width': 150,
-        'xlWidth': 170
+        'width': 'w-[150px]',
+        'responsiveWidth': 'xl:w-[170px]'
     },
     {
         'image': IDF,
         'description': 'Interaction Design Foundation',
-        'width': 170
+        'width': 'w-[170px]'
     }
 ];
 

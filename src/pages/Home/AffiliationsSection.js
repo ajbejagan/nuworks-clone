@@ -1,10 +1,10 @@
 import Title from '../../assets/affiliations-title.png';
 import AffiliationIcons from '../../assets/affiliations';
 
-const IconWrap = ({ image, desc, width, xlWidth }) => {
+const IconWrap = ({ image, desc, width, responsiveWidth }) => {
     return (
         <div className="inline-block m-[10px] md:mx-[30px] md:my-[20px] align-middle">
-            <img className={`w-[${width}px] ${xlWidth ? `xl:w-[${xlWidth}px]` : '' } h-auto mt-[10px] mx-[10px] mb-[20px]`} src={image} alt={desc} />
+            <img className={`${width} ${responsiveWidth ? `${responsiveWidth} ` : ''}h-auto mt-[10px] mx-[10px] mb-[20px]`} src={image} alt={desc} />
         </div>
     )
 }
@@ -27,31 +27,10 @@ const AffiliationsSection = () => {
                     {
                         AffiliationIcons.map((icon, index) => {
                             return (
-                                <IconWrap key={index} image={icon.image} desc={icon.description} width={icon.width} xlWidth={icon?.xlWidth}  />
+                                <IconWrap key={index} image={icon.image} desc={icon.description} width={icon.width} responsiveWidth={icon?.responsiveWidth}  />
                             )
                         })
                     }
-                    {/* <div className="inline-block m-[10px] md:mx-[30px] md:my-[20px] align-middle">
-                        <img className="w-[140px] xl:w-[160px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={googlePartner} alt="Google Partner" />
-                    </div>
-                    <div className="inline-block m-[10px] md:mx-[30px] md:my-[20px] align-middle">
-                        <img className="w-[120px] xl:w-[140px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={fbMarketingPartner} alt="Facebook Marketing Partner" />
-                    </div>
-                    <div className="inline-block m-[10px] md:mx-[30px] md:my-[20px] align-middle">
-                        <img className="w-[120px] xl:w-[150px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={fourAsPH} alt="4As Philippines" />
-                    </div>
-                    <div className="inline-block m-[10px] md:mx-[30px] md:my-[20px] align-middle">
-                        <img className="w-[140px] xl:w-[160px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={IMMAP} alt="IMMAP" />
-                    </div>
-                    <div className="inline-block m-[10px] md:mx-[30px] md:my-[20px] align-middle">
-                        <img className="w-[110px] xl:w-[130px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={pana} alt="PANA" />
-                    </div>
-                    <div className="inline-block m-[10px] md:mx-[30px] md:my-[20px] align-middle">
-                        <img className="w-[150px] xl:w-[170px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={CPHG} alt="CPHG" />
-                    </div>
-                    <div className="inline-block m-[10px] md:mx-[30px] md:my-[20px] align-middle">
-                        <img className="w-[170px] h-auto mt-[10px] mx-[10px] mb-[20px]" src={IDF} alt="Interaction Design Foundation" />
-                    </div> */}
                 </div>
             </div>
         </div>

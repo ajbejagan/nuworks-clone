@@ -1,10 +1,10 @@
 import Title from '../../assets/awards-title.png';
 import AwardIcons from '../../assets/awards';
 
-const IconWrap = ({ image, desc, width, mdWidth }) => {
+const IconWrap = ({ image, desc, width, responsiveWidth }) => {
     return (
         <div className="inline-block m-[10px] align-middle">
-            <img className={`w-[${width}px] ${mdWidth ? `md:w-[${mdWidth}px]` : '' } h-auto mt-[10px] mx-[10px] mb-[20px]`} src={image} alt={desc} />
+            <img className={`${width} ${responsiveWidth ? `${responsiveWidth} ` : ''}h-auto mt-[10px] mx-[10px] mb-[20px]`} src={image} alt={desc} />
         </div>
     )
 }
@@ -27,7 +27,7 @@ const AwardsSection = () => {
                     {
                         AwardIcons.map((icon, index) => {
                             return (
-                                <IconWrap key={index} image={icon.image} desc={icon.description} width={icon.width} mdWidth={icon?.mdWidth}  />
+                                <IconWrap key={index} image={icon.image} desc={icon.description} width={icon.width} responsiveWidth={icon?.responsiveWidth}  />
                             )
                         })
                     }

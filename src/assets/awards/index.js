@@ -20,101 +20,101 @@ const Icons = [
     {
         'image': CampaignAOYGold2020,
         'description': 'Campaign AOY Gold 2020 - PH Digital Agency',
-        'width': 130,
-        'mdWidth': 120
+        'width': 'w-[130px]',
+        'responsiveWidth': 'md:w-[120px]'
     },
     {
         'image': CampaignAOYSilver2020,
         'description': 'Campaign AOY Silver 2020 - PH Independent Agency',
-        'width': 130,
-        'mdWidth': 120
+        'width': 'w-[130px]',
+        'responsiveWidth': 'md:w-[120px]'
     },
     {
         'image': R3,
         'description': 'R3 Worldwide',
-        'width': 130,
-        'mdWidth': 120
+        'width': 'w-[130px]',
+        'responsiveWidth': 'md:w-[120px]'
     },
     {
         'image': FourAsAOY,
         'description': '21st 4As AOY',
-        'width': 130,
-        'mdWidth': 120
+        'width': 'w-[130px]',
+        'responsiveWidth': 'md:w-[120px]'
     },
     {
         'image': AsiaECommerce,
         'description': 'Asia eCommerce 2020',
-        'width': 130,
-        'mdWidth': 120
+        'width': 'w-[130px]',
+        'responsiveWidth': 'md:w-[120px]'
     },
     {
         'image': FOM,
         'description': 'FOM',
-        'width': 130,
-        'mdWidth': 120
+        'width': 'w-[130px]',
+        'responsiveWidth': 'md:w-[120px]'
     },
     {
         'image': AdStars,
         'description': 'AdStars',
-        'width': 90
+        'width':'w-[90px]'
     },
     {
         'image': AdFest2018,
         'description': 'AdFest 2018',
-        'width': 130,
-        'mdWidth': 120
+        'width': 'w-[130px]',
+        'responsiveWidth': 'md:w-[120px]'
     },
     {
         'image': ArawValuesAwards,
         'description': 'Araw Values Awards',
-        'width': 90
+        'width':'w-[90px]'
     },
     {
         'image': KidlatAwards,
         'description': 'Kidlat Awards',
-        'width': 130,
-        'mdWidth': 120
+        'width': 'w-[130px]',
+        'responsiveWidth': 'md:w-[120px]'
     },
     {
         'image': APACTambuliAwards,
         'description': 'APAC Tambuli Awards',
-        'width': 130,
-        'mdWidth': 120
+        'width': 'w-[130px]',
+        'responsiveWidth': 'md:w-[120px]'
     },
     {
         'image': BoomerangAwards2019,
         'description': 'Boomerang Awards 2019',
-        'width': 130,
-        'mdWidth': 120
+        'width': 'w-[130px]',
+        'responsiveWidth': 'md:w-[120px]'
     },
     {
         'image': MSAPICEAwards2017,
         'description': 'MSAP ICE Awards 2017',
-        'width': 130,
-        'mdWidth': 120
+        'width': 'w-[130px]',
+        'responsiveWidth': 'md:w-[120px]'
     },
     {
         'image': PanataAwards2019,
         'description': 'Panata Awards 2019',
-        'width': 130,
-        'mdWidth': 120
+        'width': 'w-[130px]',
+        'responsiveWidth': 'md:w-[120px]'
     },
     {
         'image': PHQuillAwards,
         'description': 'The Philippine Quill Awards',
-        'width': 130,
-        'mdWidth': 120
+        'width': 'w-[130px]',
+        'responsiveWidth': 'md:w-[120px]'
     },
     {
         'image': YTAdsAwardsPH,
         'description': 'YouTube Ads Awards PH',
-        'width': 130,
-        'mdWidth': 120
+        'width': 'w-[130px]',
+        'responsiveWidth': 'md:w-[120px]'
     },
     {
         'image': YTWorks,
         'description': 'YouTube Works',
-        'width': 200
+        'width': 'w-[200px]'
     }
 ];
 
