@@ -2,6 +2,7 @@ import VideoSection from "./VideoSection";
 import ServicesSection from "./ServicesSection";
 import CapabilityFocusSection from "./CapabilityFocusSection";
 // import ListOfServicesSection from "./ListOfServicesSection";
+import WorksSection from "./WorksSection";
 import TechStackSection from "./TechStackSection";
 import AboutSection from "./AboutSection";
 import StorySection from "./StorySection";
@@ -18,6 +19,8 @@ const Home = () => {
                 <VideoSection />
                 <ServicesSection />
                 <CapabilityFocusSection />
+                {/* <ListOfServicesSection /> */}
+                <WorksSection />
                 <TechStackSection />
                 <AboutSection />
                 <StorySection />

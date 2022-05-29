@@ -100,12 +100,12 @@ const JoinTheTeam = () => {
     const isRadioSelected = (value) => formData.hearAboutUs === value
 
     const onUpdateFormState = (field, value) => {
-        console.log(value);
+        // console.log(value);
         setFormData({
             ...formData,
             [field]: value,
         });
-        console.log(formData);
+        // console.log(formData);
     }
 
     return (

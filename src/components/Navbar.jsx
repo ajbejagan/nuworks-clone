@@ -45,7 +45,7 @@ const Navbar = ({ isHome, showOnScroll, isOpen, setIsOpen }) => {
                                 </Link>
                             </li>
                             <li className="my-[20px] cursor-pointer">
-                                <Link to="/#work">
+                                <Link to="/#works">
                                     <p className="text-[24px] hover:text-[30px] text-[#434343] hover:text-black font-semibold uppercase leading-[32px] nav-links-hover">
                                         Our Work
                                     </p>
