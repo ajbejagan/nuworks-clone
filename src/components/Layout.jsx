@@ -9,7 +9,6 @@ const Layout = ({ children }) => {
     const [ isOpen, setIsOpen ] = useState(false);
 
     const location = useLocation();
-    console.log(location);
     const isHome = location.pathname === '/' ? true : false;
 
     useEffect(()=> {
