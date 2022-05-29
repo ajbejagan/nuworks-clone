@@ -21,7 +21,7 @@ const Modal = ({ open, onClose }) => {
                     </div>
                     <div className="relative">
                         <div className="relative h-0 pb-[56.25%] overflow-hidden">
-                            <iframe className="absolute top-0 left-0 w-full h-full" width="100%" height="550" src="https://www.youtube.com/embed/lU_ytGp00NU" frameborder="0"></iframe>
+                            <iframe className="absolute top-0 left-0 w-full h-full" width="100%" height="550" src="https://www.youtube.com/embed/lU_ytGp00NU" frameBorder="0"></iframe>
                         </div>
                     </div>
                 </div>

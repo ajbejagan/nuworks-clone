@@ -11,6 +11,10 @@ body {
     scrollbar-width: none;  /* Firefox */
 }
 
+#root {
+    @apply flex flex-col min-h-screen;
+}
+
 .nav-links-hover:hover::before {
     content: '/ ';
 }
