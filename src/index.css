@@ -23,6 +23,15 @@ body {
     content: ' /';
 }
 
+#socialMedia:checked+label,
+#search:checked+label,
+#awardShows:checked+label,
+#events:checked+label,
+#wordOfMouth:checked+label,
+#referral:checked+label {
+    @apply bg-[#F6C900];
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

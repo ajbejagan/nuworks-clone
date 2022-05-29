@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Heading from '../assets/join-the-team-heading.png';
 import googlePartnerBadge from '../assets/google-partner-badge.png';
 import fbMarketingPartnerBadge from '../assets/fb-marketing-partner-badge.png';
+import uploadIcon from '../assets/upload.png';
 import {
     fbIcon,
     linkedInIcon,
@@ -92,7 +93,11 @@ const JoinTheTeam = () => {
         position: '',
         number: '',
         email: '',
+        hearAboutUs: 'Social Media',
+        referralPerson: ''
     });
+
+    const isRadioSelected = (value) => formData.hearAboutUs === value
 
     const onUpdateFormState = (field, value) => {
         console.log(value);
@@ -163,17 +168,17 @@ const JoinTheTeam = () => {
                                     <div className="w-full md:w-1/2 px-[15px] mb-[10px]">
                                         <label 
                                             className="inline-block text-base text-[#CCCCCC] font-normal leading-[19.2px] mb-2"
-                                            htmlFor="clientName"
+                                            htmlFor="applicantName"
                                         >
                                             Name
                                         </label>
                                         <input
                                             className="w-full text-[1rem] text-white font-normal leading-[1.5] bg-[#1E1D1D] px-3 py-1.5 border border-[#8B8B8B] rounded"
                                             type="text"
-                                            value={formData.clientName ?? ''}
-                                            name="clientName"
-                                            id="clientName"
-                                            onChange={(e) => onUpdateFormState('clientName', e.target.value)}
+                                            value={formData.applicantName ?? ''}
+                                            name="applicantName"
+                                            id="applicantName"
+                                            onChange={(e) => onUpdateFormState('applicantName', e.target.value)}
                                             maxLength={100}
                                             required
                                         />
@@ -241,6 +246,147 @@ const JoinTheTeam = () => {
                                             required
                                         />
                                     </div>
+                                </div>
+                                <div className="flex flex-wrap -mx-[15px]">
+                                    <div className="w-full px-[15px]">
+                                        <p className="inline-block text-base text-[#CCCCCC] font-normal leading-[19.2px] mb-2">
+                                            Where did you hear about us? <span className="text-[12px] font-normal leading-[14px]">(You may only choose one)</span>
+                                        </p>
+                                        <div className="mt-[10px] mb-[20px]">
+                                            <input
+                                                className="hidden"
+                                                type="radio"
+                                                value="Social Media"
+                                                name="hearAboutUs"
+                                                id="socialMedia"
+                                                checked={isRadioSelected('Social Media')}
+                                                onChange={(e) => onUpdateFormState('hearAboutUs', e.target.value)}
+                                            />
+                                            <label 
+                                                className="inline-block text-[14px] text-black leading-[20px] bg-[#E0E0E0] px-[10px] py-[5px] mt-[10px] mx-[2px] rounded-full cursor-pointer"
+                                                htmlFor="socialMedia"
+                                            >
+                                                Social Media
+                                            </label>
+                                            <input
+                                                className="hidden"
+                                                type="radio"
+                                                value="Search"
+                                                name="hearAboutUs"
+                                                id="search"
+                                                checked={isRadioSelected('Search')}
+                                                onChange={(e) => onUpdateFormState('hearAboutUs', e.target.value)}
+                                            />
+                                            <label 
+                                                className="inline-block text-[14px] text-black leading-[20px] bg-[#E0E0E0] px-[10px] py-[5px] mt-[10px] mx-[2.5px] rounded-full cursor-pointer"
+                                                htmlFor="Search"
+                                            >
+                                                Search
+                                            </label>
+                                            <input
+                                                className="hidden"
+                                                type="radio"
+                                                value="Award Shows"
+                                                name="hearAboutUs"
+                                                id="awardShows"
+                                                checked={isRadioSelected('Award Shows')}
+                                                onChange={(e) => onUpdateFormState('hearAboutUs', e.target.value)}
+                                            />
+                                            <label 
+                                                className="inline-block text-[14px] text-black leading-[20px] bg-[#E0E0E0] px-[10px] py-[5px] mt-[10px] mx-[2px] rounded-full cursor-pointer"
+                                                htmlFor="awardShows"
+                                            >
+                                                Award Shows
+                                            </label>
+                                            <input
+                                                className="hidden"
+                                                type="radio"
+                                                value="Events"
+                                                name="hearAboutUs"
+                                                id="events"
+                                                checked={isRadioSelected('Events')}
+                                                onChange={(e) => onUpdateFormState('hearAboutUs', e.target.value)}
+                                            />
+                                            <label 
+                                                className="inline-block text-[14px] text-black leading-[20px] bg-[#E0E0E0] px-[10px] py-[5px] mt-[10px] mx-[2px] rounded-full cursor-pointer"
+                                                htmlFor="events"
+                                            >
+                                                Events
+                                            </label>
+                                            <input
+                                                className="hidden"
+                                                type="radio"
+                                                value="Word of Mouth"
+                                                name="hearAboutUs"
+                                                id="wordOfMouth"
+                                                checked={isRadioSelected('Word of Mouth')}
+                                                onChange={(e) => onUpdateFormState('hearAboutUs', e.target.value)}
+                                            />
+                                            <label 
+                                                className="inline-block text-[14px] text-black leading-[20px] bg-[#E0E0E0] px-[10px] py-[5px] mt-[10px] mx-[2px] rounded-full cursor-pointer"
+                                                htmlFor="wordOfMouth"
+                                            >
+                                                Word of Mouth
+                                            </label>
+                                            <input
+                                                className="hidden"
+                                                type="radio"
+                                                value="Referral"
+                                                name="hearAboutUs"
+                                                id="referral"
+                                                checked={isRadioSelected('Referral')}
+                                                onChange={(e) => onUpdateFormState('hearAboutUs', e.target.value)}
+                                            />
+                                            <label 
+                                                className="inline-block text-[14px] text-black leading-[20px] bg-[#E0E0E0] px-[10px] py-[5px] mt-[10px] mx-[2px] rounded-full cursor-pointer"
+                                                htmlFor="referral"
+                                            >
+                                                Referral
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                {formData.hearAboutUs === 'Referral' && (
+                                    <div className="flex flex-wrap -mx-[15px] lg:mb-[10px]">
+                                        <div className="w-full md:w-1/2 px-[15px] mb-[10px]">
+                                            <label 
+                                                className="inline-block text-base text-[#CCCCCC] font-normal leading-[19.2px] mb-2"
+                                                htmlFor="referralPerson"
+                                            >
+                                                Referral's Name
+                                            </label>
+                                            <input
+                                                className="w-full text-[1rem] text-white font-normal leading-[1.5] bg-[#1E1D1D] px-3 py-1.5 border border-[#8B8B8B] rounded"
+                                                type="text"
+                                                value={formData.referralPerson}
+                                                name="referralPerson"
+                                                id="referralPerson"
+                                                onChange={(e) => onUpdateFormState('referralPerson', e.target.value)}
+                                                maxLength={100}
+                                            />
+                                        </div>
+                                    </div>
+                                )}
+                                <div className="w-full text-center bg-[#1E1D1D] pt-[30px] pb-[20px] border-[.5px] border-white border-dashed">
+                                    <img
+                                        className="block w-[35px] h-auto mb-[10px] mx-auto"
+                                        src={uploadIcon}
+                                        alt="upload"
+                                    />
+                                    <div className="relative inline-block text-center align-middle cursor-pointer rounded-[0.25rem] overflow-hidden">
+                                        <input
+                                            className="relative w-[180px] px-[35px] py-[5px] opacity-0 cursor-pointer z-[2]"
+                                            type="file"
+                                            name="file"
+                                            id="file"
+                                        />
+                                        <button
+                                            className="absolute top-0 left-0 flex items-center justify-center w-full h-full text-[16px] text-black font-medium leading-[28px] bg-[#F6C900] cursor-pointer z-[1]"
+                                        >
+                                            Upload your file
+                                        </button>
+                                    </div>
+                                    <p className="text-[14px] text-[#CCCCCC] tracking-normal leading-[17px] mt-[10px]">Types: .pdf, .doc, .docx; Max size: 50mb</p>
                                 </div>
                                 <div className="relative block px-[15px] -mx-[15px] mt-[30px] lg:mb-[10px]">
                                     <input
