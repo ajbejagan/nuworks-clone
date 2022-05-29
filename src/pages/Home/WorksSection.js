@@ -156,8 +156,8 @@ const WorkItemWrap = ({ title, imageUrl, itemLink, category }) => {
 }
 
 const WorksSection = () => {
-    const [capabilityFocus, setCapabilityFocus] = useState('');
-    const [services, setServices] = useState('');
+    const [capabilityFocus, setCapabilityFocus] = useState('not set');
+    const [services, setServices] = useState('not set');
 
     const filteredItems = items.filter((item) => {
         return (item.categories.includes(capabilityFocus) || ['not set', 'All'].includes(capabilityFocus)) && (item.categories.includes(services) || ['not set', 'All'].includes(services))
