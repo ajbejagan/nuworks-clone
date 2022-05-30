@@ -165,7 +165,7 @@ const WorksSection = () => {
 
     return (
         <>
-            <div className="flex flex-col items-center justify-center mt-[30px] mb-[60px]">
+            <div className="flex flex-col items-center justify-center mt-[30px] md:mt-[60px] mb-[60px]">
                 <div className="w-full md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] px-[15px] mx-auto">
                     <div className="flex flex-col md:flex-row mb-[10px]">
                         <h1 className="self-start text-[30px] text-white font-bold leading-[36px] mb-[10px] md:mr-[5%]">/ Related Work /</h1>

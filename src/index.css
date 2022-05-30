@@ -23,6 +23,18 @@ body {
     content: ' /';
 }
 
+.slick-dots {
+    @apply -bottom-[30px];
+}
+
+.slick-dots li button:before {
+    @apply text-[12px] text-white opacity-50;
+}
+
+.slick-dots li.slick-active button:before {
+    @apply text-[#F6C900];
+}
+
 #socialMedia:checked+label,
 #search:checked+label,
 #awardShows:checked+label,
