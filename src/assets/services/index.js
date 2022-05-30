@@ -21,6 +21,32 @@ import c7 from './c7.svg';
 import c8 from './c8.svg';
 import c9 from './c9.svg';
 import c10 from './c10.svg';
+import e1 from './e1.svg';
+import e2 from './e2.svg';
+import e3 from './e3.svg';
+import em1 from './em1.svg';
+import em2 from './em2.svg';
+import em3 from './em3.svg';
+import em4 from './em4.svg';
+import em5 from './em5.svg';
+import em6 from './em6.svg';
+import cns1 from './cns1.svg';
+import cns2 from './cns2.svg';
+import cns3 from './cns3.svg';
+import a1 from './a1.svg';
+import a2 from './a2.svg';
+import a3 from './a3.svg';
+import ed1 from './ed1.svg';
+import ed2 from './ed2.svg';
+import ed3 from './ed3.svg';
+import t1 from './t1.svg';
+import t2 from './t2.svg';
+import t3 from './t3.svg';
+import t4 from './t4.svg';
+import t5 from './t5.svg';
+import t6 from './t6.svg';
+import t7 from './t7.svg';
+import t8 from './t8.svg';
 
 export {
     bs1,
@@ -46,4 +72,30 @@ export {
     c8,
     c9,
     c10,
+    e1,
+    e2,
+    e3,
+    em1,
+    em2,
+    em3,
+    em4,
+    em5,
+    em6,
+    cns1,
+    cns2,
+    cns3,
+    a1,
+    a2,
+    a3,
+    ed1,
+    ed2,
+    ed3,
+    t1,
+    t2,
+    t3,
+    t4,
+    t5,
+    t6,
+    t7,
+    t8,
 };
