@@ -4,7 +4,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
+After forking/cloning, in the project directory, you can run:
+
+### `npm install`
+
+To start dev server, you can run:
 
 ### `npm start`
 
