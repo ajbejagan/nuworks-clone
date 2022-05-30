@@ -1,6 +1,12 @@
+import { useEffect } from 'react';
 import Title from '../assets/terms-and-conditions-title.png';
 
 const TermsAndConditions = () => {
+
+    useEffect(() => {
+        document.title = "NUWORKS | The Philippines' Leading Innovations Agency"
+    }, [])
+
     return (
         <div className="w-full mt-[100px]">
             <div className="w-full md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] px-[15px] mx-auto">

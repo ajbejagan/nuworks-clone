@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Heading from '../assets/join-the-team-heading.png';
 import googlePartnerBadge from '../assets/google-partner-badge.png';
@@ -96,6 +96,10 @@ const JoinTheTeam = () => {
         hearAboutUs: 'Social Media',
         referralPerson: ''
     });
+
+    useEffect(() => {
+        document.title = "Be One of Us"
+    }, [])
 
     const isRadioSelected = (value) => formData.hearAboutUs === value
 

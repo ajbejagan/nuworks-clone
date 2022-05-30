@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Heading from '../assets/lets-connect-heading.png';
 import googlePartnerBadge from '../assets/google-partner-badge.png';
@@ -85,6 +85,10 @@ const LetsConnect = () => {
         budget: '',
         service: ''
     });
+
+    useEffect(() => {
+        document.title = "Let's Connect"
+    }, [])
 
     const onUpdateFormState = (field, value) => {
         console.log(value);

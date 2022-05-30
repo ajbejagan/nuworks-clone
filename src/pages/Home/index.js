@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import VideoSection from "./VideoSection";
 import ServicesSection from "./ServicesSection";
 import CapabilityFocusSection from "./CapabilityFocusSection";
@@ -13,6 +14,11 @@ import AffiliationsSection from "./AffiliationsSection";
 import CTASection from "./CTASection";
 
 const Home = () => {
+
+    useEffect(() => {
+        document.title = "NUWORKS | The Philippines' Leading Innovations Agency"
+    }, [])
+
     return (
         <>
             <div className="min-h-screen">
