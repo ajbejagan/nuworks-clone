@@ -44,6 +44,25 @@ body {
     @apply bg-[#F6C900];
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+}
+
+input:valid ~ span,
+input:invalid[focused="false"] ~ span,
+select:valid ~ span,
+select:invalid[focused="false"] ~ span {
+    @apply hidden;
+}
+
+input:invalid[focused="true"] ~ span,
+select:invalid[focused="true"] ~ span {
+    @apply block;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

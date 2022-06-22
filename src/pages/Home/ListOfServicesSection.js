@@ -394,7 +394,7 @@ const ListOfServicesSection = () => {
                             </option>
                         ))}
                     </select>
-                    <ul className="md:flex md:justify-center md:flex-wrap md:my-[20px]">
+                    <ul className="hidden md:flex md:justify-center md:flex-wrap md:my-[20px]">
                     {Object.keys(servicesOptions).map((option, index) => (
                         <li
                             key={index}

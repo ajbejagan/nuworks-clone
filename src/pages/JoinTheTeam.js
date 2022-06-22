@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Heading from '../assets/join-the-team-heading.png';
 import googlePartnerBadge from '../assets/google-partner-badge.png';
 import fbMarketingPartnerBadge from '../assets/fb-marketing-partner-badge.png';
@@ -11,11 +11,13 @@ import {
     twitterIcon,
     ytIcon
 } from '../assets/icons';
+import { ApplicantContext } from '../App';
 
 const vacantPositionOptions = [
     {
-        'value': 'not set',
-        'label': 'Click to see our job openings'
+        'value': '',
+        'label': 'Click to see our job openings',
+        'disabled': 'disabled'
     },
     {
         'value': 'Account Manager',
@@ -87,7 +89,38 @@ const vacantPositionOptions = [
     }
 ]
 
+const FormInput = (props) => {
+    const [isFocused, setIsFocused] = useState(false);
+    const {inputName, label, errorMessage, onChange, ...inputProps} = props;
+
+    const handleFocus = (e) => {
+        setIsFocused(true);
+    }
+    
+    return (
+        <div className="w-full md:w-1/2 px-[15px] mb-[10px]">
+            <label 
+                className="inline-block text-base text-[#CCCCCC] font-normal leading-[19.2px] mb-2"
+                htmlFor={inputName}
+            >
+                {label}
+            </label>
+            <input
+                className="w-full text-[1rem] text-white font-normal leading-[1.5] bg-[#1E1D1D] px-3 py-1.5 border border-[#8B8B8B] rounded"
+                name={inputName}
+                id={inputName}
+                onChange={onChange}
+                onBlur={handleFocus}
+                focused={isFocused.toString()}
+                {...inputProps}
+            />
+            <span className="text-xs text-red-600">{errorMessage}</span>
+        </div>
+    )
+}
+
 const JoinTheTeam = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         applicantName: '',
         position: '',
@@ -97,19 +130,25 @@ const JoinTheTeam = () => {
         referralPerson: ''
     });
 
+    const {setApplicantFormData} = useContext(ApplicantContext);
+
     useEffect(() => {
-        document.title = "Be One of Us"
+        document.title = "Be One of Us";
     }, [])
 
-    const isRadioSelected = (value) => formData.hearAboutUs === value
+    const isRadioSelected = (value) => formData.hearAboutUs === value;
 
     const onUpdateFormState = (field, value) => {
-        // console.log(value);
         setFormData({
             ...formData,
             [field]: value,
         });
-        // console.log(formData);
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setApplicantFormData({...formData});
+        navigate('/join-the-team-result');
     }
 
     return (
@@ -167,26 +206,18 @@ const JoinTheTeam = () => {
                     </div>
                     <div className="w-full lg:max-w-1/2 px-[15px]">
                         <div className="mt-[70px] lg:mt-0">
-                            <form action="#">
-                            <div className="flex flex-wrap -mx-[15px] lg:mb-[10px]">
-                                    <div className="w-full md:w-1/2 px-[15px] mb-[10px]">
-                                        <label 
-                                            className="inline-block text-base text-[#CCCCCC] font-normal leading-[19.2px] mb-2"
-                                            htmlFor="applicantName"
-                                        >
-                                            Name
-                                        </label>
-                                        <input
-                                            className="w-full text-[1rem] text-white font-normal leading-[1.5] bg-[#1E1D1D] px-3 py-1.5 border border-[#8B8B8B] rounded"
-                                            type="text"
-                                            value={formData.applicantName ?? ''}
-                                            name="applicantName"
-                                            id="applicantName"
-                                            onChange={(e) => onUpdateFormState('applicantName', e.target.value)}
-                                            maxLength={100}
-                                            required
-                                        />
-                                    </div>
+                            <form onSubmit={handleSubmit}>
+                                <div className="flex flex-wrap -mx-[15px] lg:mb-[10px]">
+                                    <FormInput
+                                        type="text"
+                                        inputName="applicantName"
+                                        label="Name"
+                                        onChange={(e) => onUpdateFormState('applicantName', e.target.value)}
+                                        errorMessage="Name format should be first name and last name respectively."
+                                        maxLength={100}
+                                        pattern="^[a-zA-Z]{2,}(?: [a-zA-Z]+){0,1}$"
+                                        required={true}
+                                    />
                                     <div className="w-full md:w-1/2 px-[15px] mb-[10px]">
                                         <label 
                                             className="inline-block text-base text-[#CCCCCC] font-normal leading-[19.2px] mb-2"
@@ -196,15 +227,17 @@ const JoinTheTeam = () => {
                                         </label>
                                         <select
                                             className="w-full text-[1rem] text-white font-normal leading-[1.5] bg-[#1E1D1D] px-3 py-1.5 border border-[#8B8B8B] rounded"
-                                            value={formData.position}
+                                            value={formData.position === '' ? vacantPositionOptions[0].value : formData.position}
                                             name="position"
                                             id="position"
                                             onChange={(e) => onUpdateFormState('position', e.target.value)}
+                                            required
                                         >
                                             {vacantPositionOptions.map((option, index) => (
                                                 <option
                                                     key={index}
                                                     value={option.value}
+                                                    {...option}
                                                 >
                                                     {option.label}
                                                 </option>
@@ -213,43 +246,26 @@ const JoinTheTeam = () => {
                                     </div>
                                 </div>
                                 <div className="flex flex-wrap -mx-[15px] lg:mb-[10px]">
-                                    <div className="w-full md:w-1/2 px-[15px] mb-[10px]">
-                                        <label 
-                                            className="inline-block text-base text-[#CCCCCC] font-normal leading-[19.2px] mb-2"
-                                            htmlFor="name"
-                                        >
-                                            Mobile Number
-                                        </label>
-                                        <input
-                                            className="w-full text-[1rem] text-white font-normal leading-[1.5] bg-[#1E1D1D] px-3 py-1.5 border border-[#8B8B8B] rounded"
-                                            type="text"
-                                            value={formData.number}
-                                            name="number"
-                                            id="number"
-                                            onChange={(e) => onUpdateFormState('number', e.target.value)}
-                                            placeholder="9XX XXX XXXX"
-                                            maxLength={100}
-                                            required
-                                        />
-                                    </div>
-                                    <div className="w-full md:w-1/2 px-[15px] mb-[10px]">
-                                        <label 
-                                            className="inline-block text-base text-[#CCCCCC] font-normal leading-[19.2px] mb-2"
-                                            htmlFor="email"
-                                        >
-                                            Email Address
-                                        </label>
-                                        <input
-                                            className="w-full text-[1rem] text-white font-normal leading-[1.5] bg-[#1E1D1D] px-3 py-1.5 border border-[#8B8B8B] rounded"
-                                            type="text"
-                                            value={formData.email ?? ''}
-                                            name="email"
-                                            id="email"
-                                            onChange={(e) => onUpdateFormState('email', e.target.value)}
-                                            maxLength={100}
-                                            required
-                                        />
-                                    </div>
+                                    <FormInput
+                                        type="text"
+                                        inputName="number"
+                                        label="Mobile Number"
+                                        placeholder="9XX XXX XXXX"
+                                        onChange={(e) => onUpdateFormState('number', e.target.value)}
+                                        errorMessage="Mobile number should be 10 digits long and should not contain letters!"
+                                        maxLength={10}
+                                        pattern="^(9)\d{9}$"
+                                        required={true}
+                                    />
+                                    <FormInput
+                                        type="email"
+                                        inputName="email"
+                                        label="Email Address"
+                                        onChange={(e) => onUpdateFormState('email', e.target.value)}
+                                        errorMessage="It should be a valid email!"
+                                        maxLength={100}
+                                        required={true}
+                                    />
                                 </div>
                                 <div className="flex flex-wrap -mx-[15px]">
                                     <div className="w-full px-[15px]">
@@ -283,7 +299,7 @@ const JoinTheTeam = () => {
                                             />
                                             <label 
                                                 className="inline-block text-[14px] text-black leading-[20px] bg-[#E0E0E0] px-[10px] py-[5px] mt-[10px] mx-[2.5px] rounded-full cursor-pointer"
-                                                htmlFor="Search"
+                                                htmlFor="search"
                                             >
                                                 Search
                                             </label>
@@ -352,23 +368,16 @@ const JoinTheTeam = () => {
                                 </div>
                                 {formData.hearAboutUs === 'Referral' && (
                                     <div className="flex flex-wrap -mx-[15px] lg:mb-[10px]">
-                                        <div className="w-full md:w-1/2 px-[15px] mb-[10px]">
-                                            <label 
-                                                className="inline-block text-base text-[#CCCCCC] font-normal leading-[19.2px] mb-2"
-                                                htmlFor="referralPerson"
-                                            >
-                                                Referral's Name
-                                            </label>
-                                            <input
-                                                className="w-full text-[1rem] text-white font-normal leading-[1.5] bg-[#1E1D1D] px-3 py-1.5 border border-[#8B8B8B] rounded"
-                                                type="text"
-                                                value={formData.referralPerson}
-                                                name="referralPerson"
-                                                id="referralPerson"
-                                                onChange={(e) => onUpdateFormState('referralPerson', e.target.value)}
-                                                maxLength={100}
-                                            />
-                                        </div>
+                                        <FormInput
+                                            type="text"
+                                            inputName="referralPerson"
+                                            label="Referral's Name"
+                                            onChange={(e) => onUpdateFormState('referralPerson', e.target.value)}
+                                            errorMessage="Referral's name format should be first name and last name respectively."
+                                            maxLength={100}
+                                            pattern="^[a-zA-Z]{2,}(?: [a-zA-Z]+){0,1}$"
+                                            required={true}
+                                        />
                                     </div>
                                 )}
                                 <div className="w-full text-center bg-[#1E1D1D] pt-[30px] pb-[20px] border-[.5px] border-white border-dashed">

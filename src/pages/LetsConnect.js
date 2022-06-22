@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Heading from '../assets/lets-connect-heading.png';
 import googlePartnerBadge from '../assets/google-partner-badge.png';
 import fbMarketingPartnerBadge from '../assets/fb-marketing-partner-badge.png';
@@ -10,11 +10,13 @@ import {
     twitterIcon,
     ytIcon
 } from '../assets/icons';
+import { ClientContext } from '../App';
 
 const budgetOptions = [
     {
-        'value': 'not set',
-        'label': '----------'
+        'value': '',
+        'label': '----------',
+        'disabled': 'disabled'
     },
     {
         'value': 'below 50K',
@@ -36,8 +38,9 @@ const budgetOptions = [
 
 const serviceOptions = [
     {
-        'value': 'not-set',
-        'label': '----------'
+        'value': '',
+        'label': '----------',
+        'disabled': 'disabled'
     },
     {
         'value': 'Brand Strategy',
@@ -60,6 +63,14 @@ const serviceOptions = [
         'label': 'Engagement'
     },
     {
+        'value': 'Ecommerce Marketing',
+        'label': 'Ecommerce Marketing'
+    },
+    {
+        'value': 'Consulting',
+        'label': 'Consulting'
+    },
+    {
         'value': 'Analytics',
         'label': 'Analytics'
     },
@@ -73,7 +84,38 @@ const serviceOptions = [
     }
 ]
 
+const FormInput = (props) => {
+    const [isFocused, setIsFocused] = useState(false);
+    const {inputName, label, errorMessage, onChange, ...inputProps} = props;
+
+    const handleFocus = (e) => {
+        setIsFocused(true);
+    }
+    
+    return (
+        <div className="w-full md:w-1/2 px-[15px] mb-[10px]">
+            <label 
+                className="inline-block text-base text-[#CCCCCC] font-normal leading-[19.2px] mb-2"
+                htmlFor={inputName}
+            >
+                {label}
+            </label>
+            <input
+                className="w-full text-[1rem] text-white font-normal leading-[1.5] bg-[#1E1D1D] px-3 py-1.5 border border-[#8B8B8B] rounded"
+                name={inputName}
+                id={inputName}
+                onChange={onChange}
+                onBlur={handleFocus}
+                focused={isFocused.toString()}
+                {...inputProps}
+            />
+            <span className="text-xs text-red-600">{errorMessage}</span>
+        </div>
+    )
+}
+
 const LetsConnect = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         clientName: '',
         number: '',
@@ -86,17 +128,23 @@ const LetsConnect = () => {
         service: ''
     });
 
+    const {setClientFormData} = useContext(ClientContext);
+
     useEffect(() => {
         document.title = "Let's Connect"
     }, [])
 
     const onUpdateFormState = (field, value) => {
-        console.log(value);
         setFormData({
             ...formData,
             [field]: value,
         });
-        console.log(formData);
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setClientFormData({...formData});
+        navigate('/lets-connect-result');
     }
 
     return (
@@ -154,141 +202,80 @@ const LetsConnect = () => {
                     </div>
                     <div className="w-full lg:max-w-1/2 px-[15px]">
                         <div className="mt-[70px] lg:mt-0">
-                            <form action="#">
+                            <form onSubmit={handleSubmit}>
                                 <div className="flex flex-wrap -mx-[15px] lg:mb-[10px]">
-                                    <div className="w-full md:w-1/2 px-[15px] mb-[10px]">
-                                        <label 
-                                            className="inline-block text-base text-[#CCCCCC] font-normal leading-[19.2px] mb-2"
-                                            htmlFor="name"
-                                        >
-                                            Name
-                                        </label>
-                                        <input
-                                            className="w-full text-[1rem] text-white font-normal leading-[1.5] bg-[#1E1D1D] px-3 py-1.5 border border-[#8B8B8B] rounded"
-                                            type="text"
-                                            value={formData.clientName ?? ''}
-                                            name="clientName"
-                                            id="clientName"
-                                            onChange={(e) => onUpdateFormState('clientName', e.target.value)}
-                                            maxLength={100}
-                                            required
-                                        />
-                                    </div>
-                                    <div className="w-full md:w-1/2 px-[15px] mb-[10px]">
-                                        <label 
-                                            className="inline-block text-base text-[#CCCCCC] font-normal leading-[19.2px] mb-2"
-                                            htmlFor="number"
-                                        >
-                                            Mobile Number
-                                        </label>
-                                        <input
-                                            className="w-full text-[1rem] text-white font-normal leading-[1.5] bg-[#1E1D1D] px-3 py-1.5 border border-[#8B8B8B] rounded"
-                                            type="text"
-                                            value={formData.number}
-                                            name="number"
-                                            id="number"
-                                            onChange={(e) => onUpdateFormState('number', e.target.value)}
-                                            placeholder="9XX XXX XXXX"
-                                            maxLength={100}
-                                            required
-                                        />
-                                    </div>
+                                    <FormInput
+                                        type="text"
+                                        inputName="clientName"
+                                        label="Name"
+                                        onChange={(e) => onUpdateFormState('clientName', e.target.value)}
+                                        errorMessage="Name format should be first name and last name respectively."
+                                        maxLength={100}
+                                        pattern="^[a-zA-Z]{2,}(?: [a-zA-Z]+){0,1}$"
+                                        required={true}
+                                    />
+                                    <FormInput
+                                        type="text"
+                                        inputName="number"
+                                        label="Mobile Number"
+                                        placeholder="9XX XXX XXXX"
+                                        onChange={(e) => onUpdateFormState('number', e.target.value)}
+                                        errorMessage="Mobile number should be 10 digits long and should not contain letters!"
+                                        maxLength={10}
+                                        pattern="^(9)\d{9}$"
+                                        required={true}
+                                    />
                                 </div>
                                 <div className="flex flex-wrap -mx-[15px] lg:mb-[10px]">
-                                    <div className="w-full md:w-1/2 px-[15px] mb-[10px]">
-                                        <label 
-                                            className="inline-block text-base text-[#CCCCCC] font-normal leading-[19.2px] mb-2"
-                                            htmlFor="email"
-                                        >
-                                            Email Address
-                                        </label>
-                                        <input
-                                            className="w-full text-[1rem] text-white font-normal leading-[1.5] bg-[#1E1D1D] px-3 py-1.5 border border-[#8B8B8B] rounded"
-                                            type="email"
-                                            value={formData.email}
-                                            name="email"
-                                            id="email"
-                                            onChange={(e) => onUpdateFormState('email', e.target.value)}
-                                            maxLength={254}
-                                            required
-                                        />
-                                    </div>
-                                    <div className="w-full md:w-1/2 px-[15px] mb-[10px]">
-                                        <label 
-                                            className="inline-block text-base text-[#CCCCCC] font-normal leading-[19.2px] mb-2"
-                                            htmlFor="industry"
-                                        >
-                                            Industry
-                                        </label>
-                                        <input
-                                            className="w-full text-[1rem] text-white font-normal leading-[1.5] bg-[#1E1D1D] px-3 py-1.5 border border-[#8B8B8B] rounded"
-                                            type="text"
-                                            value={formData.industry}
-                                            name="industry"
-                                            id="industry"
-                                            onChange={(e) => onUpdateFormState('industry', e.target.value)}
-                                            maxLength={254}
-                                            required
-                                        />
-                                    </div>
+                                    <FormInput
+                                        type="email"
+                                        inputName="email"
+                                        label="Email Address"
+                                        onChange={(e) => onUpdateFormState('email', e.target.value)}
+                                        errorMessage="It should be a valid email!"
+                                        maxLength={100}
+                                        required={true}
+                                    />
+                                    <FormInput
+                                        type="text"
+                                        inputName="industry"
+                                        label="Industry"
+                                        onChange={(e) => onUpdateFormState('industry', e.target.value)}
+                                        errorMessage="This field is required!"
+                                        maxLength={254}
+                                        required={true}
+                                    />
                                 </div>
                                 <div className="flex flex-wrap -mx-[15px] lg:mb-[10px]">
-                                    <div className="w-full md:w-1/2 px-[15px] mb-[10px]">
-                                        <label 
-                                            className="inline-block text-base text-[#CCCCCC] font-normal leading-[19.2px] mb-2"
-                                            htmlFor="company"
-                                        >
-                                            Company
-                                        </label>
-                                        <input
-                                            className="w-full text-[1rem] text-white font-normal leading-[1.5] bg-[#1E1D1D] px-3 py-1.5 border border-[#8B8B8B] rounded"
-                                            type="text"
-                                            value={formData.company}
-                                            name="company"
-                                            id="company"
-                                            onChange={(e) => onUpdateFormState('company', e.target.value)}
-                                            maxLength={225}
-                                            required
-                                        />
-                                    </div>
-                                    <div className="w-full md:w-1/2 px-[15px] mb-[10px]">
-                                        <label 
-                                            className="inline-block text-base text-[#CCCCCC] font-normal leading-[19.2px] mb-2"
-                                            htmlFor="brand"
-                                        >
-                                            Brand
-                                        </label>
-                                        <input
-                                            className="w-full text-[1rem] text-white font-normal leading-[1.5] bg-[#1E1D1D] px-3 py-1.5 border border-[#8B8B8B] rounded"
-                                            type="text"
-                                            value={formData.brand}
-                                            name="brand"
-                                            id="brand"
-                                            onChange={(e) => onUpdateFormState('brand', e.target.value)}
-                                            maxLength={225}
-                                            required
-                                        />
-                                    </div>
+                                    <FormInput
+                                        type="text"
+                                        inputName="company"
+                                        label="Company"
+                                        onChange={(e) => onUpdateFormState('company', e.target.value)}
+                                        errorMessage="This field is required!"
+                                        maxLength={225}
+                                        required={true}
+                                    />
+                                    <FormInput
+                                        type="text"
+                                        inputName="brand"
+                                        label="Brand"
+                                        onChange={(e) => onUpdateFormState('brand', e.target.value)}
+                                        errorMessage="This field is required!"
+                                        maxLength={225}
+                                        required={true}
+                                    />
                                 </div>
                                 <div className="flex flex-wrap -mx-[15px] lg:mb-[10px]">
-                                    <div className="w-full md:w-1/2 px-[15px] mb-[10px]">
-                                        <label 
-                                            className="inline-block text-base text-[#CCCCCC] font-normal leading-[19.2px] mb-2"
-                                            htmlFor="position"
-                                        >
-                                            Designation / Position
-                                        </label>
-                                        <input
-                                            className="w-full text-[1rem] text-white font-normal leading-[1.5] bg-[#1E1D1D] px-3 py-1.5 border border-[#8B8B8B] rounded"
-                                            type="text"
-                                            value={formData.position}
-                                            name="position"
-                                            id="position"
-                                            onChange={(e) => onUpdateFormState('position', e.target.value)}
-                                            maxLength={225}
-                                            required
-                                        />
-                                    </div>
+                                    <FormInput
+                                        type="text"
+                                        inputName="position"
+                                        label="Designation / Position"
+                                        onChange={(e) => onUpdateFormState('position', e.target.value)}
+                                        errorMessage="This field is required!"
+                                        maxLength={225}
+                                        required={true}
+                                    />
                                     <div className="w-full md:w-1/2 px-[15px] mb-[10px]">
                                         <label 
                                             className="inline-block text-base text-[#CCCCCC] font-normal leading-[19.2px] mb-2"
@@ -298,15 +285,17 @@ const LetsConnect = () => {
                                         </label>
                                         <select
                                             className="w-full text-[1rem] text-white font-normal leading-[1.5] bg-[#1E1D1D] px-3 py-1.5 border border-[#8B8B8B] rounded"
-                                            value={formData.budget}
+                                            value={formData.budget === '' ? budgetOptions[0].value : formData.budget}
                                             name="budget"
                                             id="budget"
                                             onChange={(e) => onUpdateFormState('budget', e.target.value)}
+                                            required
                                         >
                                             {budgetOptions.map((option, index) => (
                                                 <option
                                                     key={index}
                                                     value={option.value}
+                                                    {...option}
                                                 >
                                                     {option.label}
                                                 </option>
@@ -324,15 +313,17 @@ const LetsConnect = () => {
                                         </label>
                                         <select
                                             className="w-full text-[1rem] text-white font-normal leading-[1.5] bg-[#1E1D1D] px-3 py-1.5 border border-[#8B8B8B] rounded"
-                                            value={formData.service}
+                                            value={formData.service === '' ? serviceOptions[0].value : formData.service}
                                             name="service"
                                             id="service"
                                             onChange={(e) => onUpdateFormState('service', e.target.value)}
+                                            required
                                         >
                                             {serviceOptions.map((option, index) => (
                                                 <option
                                                     key={index}
                                                     value={option.value}
+                                                    {...option}
                                                 >
                                                     {option.label}
                                                 </option>
